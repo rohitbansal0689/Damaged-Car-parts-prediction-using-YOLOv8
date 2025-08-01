@@ -3,7 +3,7 @@ uvicorn==0.35.0
 pydantic==2.7.1
 python-multipart==0.0.20
 requests==2.32.4
-pandas==2.2.0
+pandas==1.5.3
 numpy==2.0.0
 opencv-python-headless==4.10.0.82  # ✅ Safe on servers
 Pillow==11.3.0
