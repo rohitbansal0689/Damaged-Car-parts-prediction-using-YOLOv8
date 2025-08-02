@@ -7,7 +7,7 @@ requests==2.32.4
 pandas==2.0.3
 numpy==1.24.4
 opencv-python-headless==4.10.0.82
-Pillow==11.3.0
+Pillow==9.5.0
 matplotlib==3.9.0
 tqdm==4.67.1
 ultralytics==8.3.169
