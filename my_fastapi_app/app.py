@@ -8,7 +8,7 @@ import io
 app = FastAPI()
 
 # Load ONNX model once
-session = ort.InferenceSession("best.onnx")
+session = ort.InferenceSession("best.onnx", providers=["CPUExecutionProvider"])
 input_name = session.get_inputs()[0].name
 
 # Dummy labels — replace with actual if needed
