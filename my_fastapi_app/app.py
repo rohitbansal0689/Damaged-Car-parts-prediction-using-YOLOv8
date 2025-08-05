@@ -27,7 +27,7 @@ app = FastAPI(
 
 # --- Configuration & Model Loading ---
 try:
-    SCRIPT_DIR = pathlib.Path(__file__).parent.resolve() 
+    SCRIPT_DIR = pathlib.Path(__file__).parent.resolve()
     model_path = SCRIPT_DIR / "best.pt"
     model = YOLO(model_path) # Use the same variable name
 except Exception as e:
