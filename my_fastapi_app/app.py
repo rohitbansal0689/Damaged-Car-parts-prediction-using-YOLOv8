@@ -15,6 +15,7 @@ from PIL import Image, UnidentifiedImageError
 import numpy as np
 import io
 from ultralytics import YOLO
+import pathlib
 from typing import List, Dict, Any
 
 # --- Basic App Setup ---
@@ -26,7 +27,9 @@ app = FastAPI(
 
 # --- Configuration & Model Loading ---
 try:
-    model = YOLO("best.pt")
+    SCRIPT_DIR = pathlib.Path(__file__).parent.resolve() 
+    model_path = SCRIPT_DIR / "best.pt"
+    model = YOLO(model_path) # Use the same variable name
 except Exception as e:
     raise RuntimeError(f"Error loading YOLO model 'best.pt': {e}")
 
@@ -118,7 +121,7 @@ async def predict(file: UploadFile = File(..., description="Image file of the da
 
         # Rule 2: For the silver truck's dent
         elif label == 'dent' and 3500 < pixel_area < 4000:
-            part = 'rear cab panel'
+            part = 'rear side panel'
 
         # Rule 3: For the windshield
         elif label == 'damaged wind shield':
