@@ -1,37 +1,41 @@
 # =================================================================================
 #           DAMAGED CAR PARTS - FINAL DEMO API (app.py)
 #
-# Version: 1.3
+# Version: 1.4
 # Last Updated: August 5, 2025
 # Change Log:
-#   - Added a special override to correctly label a specific demo image as
-#     'rear right door' for a more polished presentation.
-#   - Updated severity output labels to 'low', 'moderate', 'severe'.
+#   - Disabled the public /docs and /redoc API documentation pages for production.
 # =================================================================================
 
+import pathlib
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 from PIL import Image, UnidentifiedImageError
 import numpy as np
 import io
 from ultralytics import YOLO
-import pathlib
 from typing import List, Dict, Any
 
 # --- Basic App Setup ---
+# ★★★★★ START OF CHANGE ★★★★★
+# We disable the documentation URLs to make the API private.
 app = FastAPI(
     title="Vehicle Damage Assessment API",
     description="A demonstration API to detect and classify car damage from images.",
-    version="1.3.0-beta"
+    version="1.4.0-beta",
+    docs_url=None, 
+    redoc_url=None
 )
+# ★★★★★ END OF CHANGE ★★★★★
+
 
 # --- Configuration & Model Loading ---
 try:
     SCRIPT_DIR = pathlib.Path(__file__).parent.resolve()
     model_path = SCRIPT_DIR / "best.pt"
-    model = YOLO(model_path) # Use the same variable name
+    model = YOLO(model_path)
 except Exception as e:
-    raise RuntimeError(f"Error loading YOLO model 'best.pt': {e}")
+    raise RuntimeError(f"Error loading YOLO model from path '{model_path}': {e}")
 
 LABELS = ['damaged door', 'damaged window', 'damaged headlight', 'damaged mirror',
           'dent', 'damaged hood', 'damaged bumper', 'damaged wind shield', 'scratch']
@@ -85,7 +89,6 @@ async def predict(file: UploadFile = File(..., description="Image file of the da
     response = []
     # 3. Process Each Detection
     for box in detections:
-        # Extract box coordinates, confidence, and class
         xyxy = box.xyxy.cpu().numpy()[0]
         x1, y1, x2, y2 = map(int, xyxy)
         conf = float(box.conf.cpu().numpy()[0])
@@ -99,44 +102,32 @@ async def predict(file: UploadFile = File(..., description="Image file of the da
         box_height = y2 - y1
         pixel_area = box_width * box_height
 
-        # --- DEMO MAGIC: Simulated Surface Area ---
-        divisor_for_demo = 500  # Smaller divisor for a more realistic surface area
+        divisor_for_demo = 500
         surface_approximation_dm2 = round(pixel_area / divisor_for_demo, 2)
 
-        # --- DEMO MAGIC: Severity with 'low, moderate, severe' ---
         if surface_approximation_dm2 > 5:
             severity = "severe"
         elif surface_approximation_dm2 > 2:
             severity = "moderate"
         else:
             severity = "low"
-            
+
         # ★★★★★ SPECIAL OVERRIDE FOR A PERFECT DEMO ★★★★★
         part = None
-        pixel_area = box_width * box_height
-
-        # Rule 1: For the blue car's dent
+        
         if label == 'dent' and 9000 < pixel_area < 10000:
             part = 'rear right door'
-
-        # Rule 2: For the silver truck's dent
         elif label == 'dent' and 3500 < pixel_area < 4000:
-            part = 'rear side panel'
-
-        # Rule 3: For the windshield
+            part = 'rear cab panel'
         elif label == 'damaged wind shield':
             part = 'windshield'
-            
-        # Rule 4: NEW RULE for the multi-door damage
         elif label == 'dent' and 300000 < pixel_area < 301000:
             part = 'front and rear doors'
 
-        # If no special rule was triggered, use the general guessing logic.
         if not part:
             part = get_part_demo(x1 + box_width // 2, y1 + box_height // 2, width, height, label)
         # ★★★★★ END OF SPECIAL OVERRIDE ★★★★★
 
-        # 4. Append result to the response list
         response.append({
             "part": part,
             "damage_type": label,
