@@ -1,0 +1,12 @@
+
+# Local env
+.venv/
+
+# Training data / artifacts
+data/golden/
+data/negatives/
+data/tmp/
+*.pt
+*.onnx
+*.weights
+*.ipynb_checkpoints/
