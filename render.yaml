@@ -1,0 +1,23 @@
+services:
+- type: web
+  name: k-claim-api-staging
+  env: python
+  plan: standard
+  buildCommand: pip install -r requirements.txt
+  startCommand: uvicorn my_fastapi_app.app:app --host 0.0.0.0 --port $PORT
+  healthCheckPath: /health
+  autoDeploy: true
+  envVars:
+    - key: MODEL_PATH
+      value: my_fastapi_app/best.pt
+    - key: MODEL_VERSION
+      value: best.pt@v1
+    - key: OVERLAY_DEFAULT
+      value: "1"
+    # Optional demo tuning
+    - key: CONF_DENT
+      value: "0.45"
+    - key: CONF_SCRATCH
+      value: "0.50"
+    - key: CONF_GENERIC
+      value: "0.40"

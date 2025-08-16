@@ -1,0 +1,936 @@
+{
+  "pos_001.jpeg": {
+    "count": 2,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_002.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_003.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_004.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_005.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_006.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_007.jpg": {
+    "count": 4,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_008.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_009.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_010.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_011.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "damaged mirror"
+    ]
+  },
+  "pos_012.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_013.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_014.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_015.jpg": {
+    "count": 2,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_016.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_017.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_018.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_019.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "damaged mirror"
+    ]
+  },
+  "pos_020.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_021.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_022.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_023.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "dent"
+    ]
+  },
+  "pos_024.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_025.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_026.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_027.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_028.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_029.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_030.jpg": {
+    "count": 3,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_031.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_032.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_033.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged door",
+      "dent"
+    ]
+  },
+  "pos_034.png": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_035.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_036.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_037.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_038.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_039.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_040.jpg": {
+    "count": 3,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_041.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_042.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_043.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_044.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_045.png": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_046.jpeg": {
+    "count": 4,
+    "labels": [
+      "damaged bumper",
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_047.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged bumper",
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_048.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_049.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_050.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged headlight",
+      "damaged hood",
+      "dent"
+    ]
+  },
+  "pos_051.jpg": {
+    "count": 2,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_052.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "damaged headlight"
+    ]
+  },
+  "pos_053.jpg": {
+    "count": 2,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_054.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_055.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_056.jpeg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_057.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_058.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_059.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_060.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_061.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_062.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_063.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_064.jpeg": {
+    "count": 3,
+    "labels": [
+      "damaged bumper",
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_065.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_066.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_067.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_068.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_069.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_070.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_071.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_072.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_073.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_074.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_075.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_076.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_077.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_078.jpeg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_079.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged door",
+      "dent"
+    ]
+  },
+  "pos_080.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_081.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_082.png": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_083.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_084.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_085.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_086.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_087.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_088.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_089.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_090.jpeg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_091.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_092.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_093.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "dent"
+    ]
+  },
+  "pos_094.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_095.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_096.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_097.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged bumper",
+      "damaged headlight"
+    ]
+  },
+  "pos_098.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_099.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_100.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_101.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_102.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged mirror",
+      "dent"
+    ]
+  },
+  "pos_103.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_104.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_105.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_106.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_107.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_108.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_109.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_110.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_111.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_112.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_113.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_114.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_115.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged mirror"
+    ]
+  },
+  "pos_116.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged hood",
+      "damaged wind shield"
+    ]
+  },
+  "pos_117.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_118.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_119.jpg": {
+    "count": 3,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_120.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_121.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_122.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged door"
+    ]
+  },
+  "pos_123.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_124.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_125.jpeg": {
+    "count": 2,
+    "labels": [
+      "damaged door",
+      "dent"
+    ]
+  },
+  "pos_126.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_127.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_128.jpg": {
+    "count": 2,
+    "labels": [
+      "damaged headlight",
+      "dent"
+    ]
+  },
+  "pos_129.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_130.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_131.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_132.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_133.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged mirror"
+    ]
+  },
+  "pos_134.jpg": {
+    "count": 3,
+    "labels": [
+      "damaged bumper",
+      "damaged headlight",
+      "damaged hood"
+    ]
+  },
+  "pos_135.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_136.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_137.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_138.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged window"
+    ]
+  },
+  "pos_139.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_140.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_141.png": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_142.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_143.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_144.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged mirror"
+    ]
+  },
+  "pos_145.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_146.jpeg": {
+    "count": 1,
+    "labels": [
+      "damaged headlight"
+    ]
+  },
+  "pos_147.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged hood"
+    ]
+  },
+  "pos_148.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  },
+  "pos_149.jpg": {
+    "count": 1,
+    "labels": [
+      "dent"
+    ]
+  },
+  "pos_150.jpg": {
+    "count": 1,
+    "labels": [
+      "damaged wind shield"
+    ]
+  }
+}

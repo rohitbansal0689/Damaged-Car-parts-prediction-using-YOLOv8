@@ -1,0 +1,29 @@
+# venv & caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# OS/IDE
+.DS_Store
+.idea/
+.vscode/
+
+# runs & large artifacts
+runs/
+*.onnx
+*.tflite
+*.pb
+
+# datasets & generated QA
+data/golden/positives/
+data/golden/negatives/
+data/demo_good/
+overlay.jpg
+
+# weights (keep only if <100MB)
+# my_fastapi_app/best.pt
