@@ -29,6 +29,9 @@ MIN_BLUR_VAR = float(os.getenv("MIN_BLUR_VAR", "60"))
 BRIGHT_MIN = float(os.getenv("BRIGHT_MIN", "60"))
 BRIGHT_MAX = float(os.getenv("BRIGHT_MAX", "200"))
 OVERLAY_DEFAULT = os.getenv("OVERLAY_DEFAULT", "0") == "1"
+PIXELS_PER_DM2 = float(os.getenv("PIXELS_PER_DM2", "500"))  # same as your old divisor
+SEV_DM2_MED    = float(os.getenv("SEV_DM2_MED", "2.0"))
+SEV_DM2_HIGH   = float(os.getenv("SEV_DM2_HIGH", "5.0"))
 
 LABELS = [
     'damaged door', 'damaged window', 'damaged headlight', 'damaged mirror',
@@ -96,11 +99,11 @@ def side_label_from_box(
     return vert if vert != "center" else (horiz if horiz != "center" else "side area")
 
 
-
-
-def severity_from_area_ratio(r: float, conf: float) -> str:
-    if r >= SEV_HIGH or (r >= SEV_HIGH*0.6 and conf >= 0.75): return "high"
-    if r >= SEV_MED: return "medium"
+def severity_from_dm2(dm2: float, conf: float) -> str:
+    if dm2 >= SEV_DM2_HIGH or (dm2 >= SEV_DM2_HIGH * 0.6 and conf >= 0.75):
+        return "severe"
+    if dm2 >= SEV_DM2_MED:
+        return "moderate"
     return "low"
 
 def draw_overlay(img_bgr: np.ndarray, items: List[Dict[str, Any]]) -> str:
@@ -162,21 +165,26 @@ def _analyze(image: Image.Image, want_overlay: bool) -> Dict[str, Any]:
         # per-class confidence gate
         if conf < class_conf(label): continue
         x1,y1,x2,y2 = map(int, b.xyxy.cpu().numpy()[0])
-        bw,bh = x2-x1, y2-y1
-        pixel_area = max(1, bw*bh)
-        area_ratio = pixel_area / float(w*h)
-        sev = severity_from_area_ratio(area_ratio, conf)
+        bw, bh = x2 - x1, y2 - y1
+        pixel_area = max(1, bw * bh)
+        dm2 = round(pixel_area / PIXELS_PER_DM2, 2)
+
+        # severity from dm²
+        severity = severity_from_dm2(dm2, conf)
+
+        # location wording (we already pass the label for door-specific wording)
         location = side_label_from_box(w, h, x1, y1, x2, y2, label)
 
+        # === YOUR EXACT RESPONSE SHAPE ===
         findings.append({
             "part": location,
             "damage_type": label,
-            "severity": sev,
-            "estimated_surface": f"{(area_ratio*100):.2f} % of image",
-            "confidence": round(conf,3),
-            "bounding_box": [x1,y1,x2,y2]
+            "severity": severity,
+            "estimated_surface": f"{dm2} dm²",
+            "confidence": f"{conf:.1%}",            # percent string like "87.3%"
+            "bounding_box": [x1, y1, x2, y2]
         })
-
+      
     next_best_action: Optional[str] = None
     if not findings:
         next_best_action = "No clear damage found. Capture a wider shot with full car and good lighting; add a second 3/4 angle."
@@ -206,20 +214,8 @@ async def analyze(file: UploadFile = File(...), overlay: bool = Query(OVERLAY_DE
 # Back-compat: your legacy shape
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
-    try:
-        image = Image.open(io.BytesIO(await file.read())).convert("RGB")
-    except UnidentifiedImageError:
-        raise HTTPException(400, "The uploaded file is not a valid image.")
-    except Exception as e:
-        raise HTTPException(500, f"Error processing image: {e}")
-    full = _analyze(image, want_overlay=False)
-    findings = full["findings"]
-    if not findings: return JSONResponse(content={"message": "No damage detected in the image."})
-    legacy=[]
-    for f in findings:
-        legacy.append({
-            "part": f["part"], "damage_type": f["damage_type"],
-            "severity": f["severity"], "estimated_surface": f["estimated_surface"],
-            "confidence": f"{float(f['confidence']):.1%}", "bounding_box": f["bounding_box"]
-        })
-    return JSONResponse(content=legacy)
+    image_bytes = await file.read()
+    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    out = _analyze(image, want_overlay=False)  # same core as /analyze
+    findings = out.get("findings", [])
+    return JSONResponse(content=findings if findings else {"message": "No damage detected in the image."})
