@@ -8,16 +8,54 @@ services:
   healthCheckPath: /health
   autoDeploy: true
   envVars:
+    - key: ENABLE_DOCS
+      value: "1"
     - key: MODEL_PATH
       value: my_fastapi_app/best.pt
     - key: MODEL_VERSION
       value: best.pt@v1
     - key: OVERLAY_DEFAULT
       value: "1"
-    # Optional demo tuning
+
+    # --- Confidence gates ---
+    - key: CONF_MIN_GATE
+      value: "0.25"
     - key: CONF_DENT
-      value: "0.45"
+      value: "0.70"
     - key: CONF_SCRATCH
-      value: "0.50"
+      value: "0.35"
     - key: CONF_GENERIC
-      value: "0.40"
+      value: "0.25"
+    # Stricter for windshield (new in 1.6.4)
+    - key: CONF_WINDSHIELD
+      value: "0.80"
+
+    # --- Windshield / border shape guards (new in 1.6.4) ---
+    # drop ultra-thin bands stuck to image top/bottom
+    - key: BORDER_THIN_FRAC
+      value: "0.12"
+    - key: BORDER_PIX
+      value: "3"
+    # require windshield boxes to be tall enough
+    - key: MIN_WSHIELD_HF
+      value: "0.18"
+
+    # --- Inference options ---
+    - key: IMG_SIZE
+      value: "960"
+    - key: AGNOSTIC_NMS
+      value: "0"   # keep 0 unless you explicitly want class-agnostic NMS
+
+    # --- Quality hints (non-blocking) ---
+    - key: MIN_SHORT_SIDE
+      value: "640"
+    - key: MIN_BLUR_VAR
+      value: "60"
+    - key: BRIGHT_MIN
+      value: "60"
+    - key: BRIGHT_MAX
+      value: "200"
+
+    # (Optional) lightweight auth for /analyze & /predict
+    # - key: INTERNAL_TOKEN
+    #   value: some-secret-token
