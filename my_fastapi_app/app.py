@@ -162,15 +162,15 @@ def severity_from_dm2(dm2: float, conf: float) -> str:
     if dm2 >= DM2_MED: return "moderate"
     return "low"
 
-def draw_overlay(img_bgr: np.ndarray, items: List[Dict[str, Any]]) -> str:
-    overlay = img_bgr.copy()
-    for it in items:
-        x1, y1, x2, y2 = it["bounding_box"]
-        label = f"{it['damage_type']} - {it['severity']}"
-        cv2.rectangle(overlay, (x1,y1), (x2,y2), (0,255,0), 2)
-        cv2.putText(overlay, label, (x1, max(10, y1-6)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 1, cv2.LINE_AA)
-    _, buf = cv2.imencode(".jpg", overlay)
-    return base64.b64encode(buf.tobytes()).decode("ascii")
+# def draw_overlay(img_bgr: np.ndarray, items: List[Dict[str, Any]]) -> str:
+#     overlay = img_bgr.copy()
+#     for it in items:
+#         x1, y1, x2, y2 = it["bounding_box"]
+#         label = f"{it['damage_type']} - {it['severity']}"
+#         cv2.rectangle(overlay, (x1,y1), (x2,y2), (0,255,0), 2)
+#         cv2.putText(overlay, label, (x1, max(10, y1-6)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 1, cv2.LINE_AA)
+#     _, buf = cv2.imencode(".jpg", overlay)
+#     return base64.b64encode(buf.tobytes()).decode("ascii")
 
 def conf_to_num(c):
     if isinstance(c, str) and c.endswith("%"):
@@ -261,7 +261,7 @@ def windshield_height_guard(final_label: str, y1:int, y2:int, img_h:int) -> bool
 #         }
 #     }
 
-def _analyze(image: Image.Image, want_overlay: bool) -> Dict[str, Any]:
+def _analyze(image: Image.Image) -> Dict[str, Any]:
     rgb = np.array(image); bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
     h, w = bgr.shape[:2]
     warnings = assess_quality(bgr)
@@ -337,8 +337,6 @@ def _analyze(image: Image.Image, want_overlay: bool) -> Dict[str, Any]:
         "warnings": warnings,
         "next_best_action": None if findings else "No clear damage found. Capture a wider shot with full car and good lighting; add a second 3/4 angle."
     }
-    if want_overlay and findings:
-        resp["overlay_b64"] = draw_overlay(bgr, findings)
     return resp
 
 
@@ -351,7 +349,7 @@ async def analyze(request: Request, file: UploadFile = File(...)):
         raise HTTPException(400, "The uploaded file is not a valid image.")
     except Exception as e:
         raise HTTPException(500, f"Error processing image: {e}")
-    return JSONResponse(content=_analyze(image, want_overlay=overlay))
+    return JSONResponse(content=_analyze(image))
 
 # --- Legacy endpoint (kept here but hidden from docs) ---
 # @app.post("/predict")
