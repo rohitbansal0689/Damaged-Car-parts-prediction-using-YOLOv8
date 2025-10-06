@@ -1,4 +1,8 @@
 # my_fastapi_app/app.py
+from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.staticfiles import StaticFiles
+from starlette.responses import RedirectResponse
+
 import os, io, uuid, pathlib, random, base64
 from typing import List, Dict, Any, Optional
 import numpy as np, cv2
@@ -70,10 +74,12 @@ app = FastAPI(
     redoc_url="/redoc" if ENABLE_DOCS else None,
     openapi_tags=[
             {"name": "Damage Analysis", "description": "Upload an image to analyze vehicle damage"}],
-   swagger_ui_parameters={
-         "defaultModelsExpandDepth": -1,  # HIDE the entire “Schemas” section
-         "defaultModelExpandDepth": 1,    # (optional) don’t auto-expand single models
-     }
+    swagger_ui_parameters={
+        "defaultModelsExpandDepth": -1,  # hide Schemas block
+        "defaultModelExpandDepth": 0,    # hide example models inside ops
+        "docExpansion": "full",          # <-- expand all operations by default
+        "deepLinking": True,
+    },
 )
 
 # ---- Model ----
@@ -226,6 +232,11 @@ def windshield_height_guard(final_label: str, y1:int, y2:int, img_h:int) -> bool
     return hf >= MIN_WSHIELD_HF
 
 # ---- Endpoints ----
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs#/Damage%20Analysis/analyze_analyze_post")
+
 # @app.get("/health")
 # def health(): return {"ok": false}
 #
